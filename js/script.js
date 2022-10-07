@@ -1,6 +1,7 @@
 let playerScore = 0;
 let computerScore = 0;
-const buttons = Array.from(document.querySelectorAll("button"));
+const buttons = Array.from(document.querySelectorAll(".choice"));
+const btnReset = document.querySelector(".reset-btn");
 const text = document.querySelector(".text");
 const scorePlayer = document.querySelector(".score-player");
 const scoreComputer = document.querySelector(".score-computer");
@@ -32,7 +33,11 @@ function playRound(playerChoice) {
     }
   } else if (playerChoice === computerChoice) {
     text.textContent = `It's a tie! You both chose ${playerChoiceCapitalized}.`;
-  } else {
+  } else if (
+    (computerChoice === "rock" && playerChoice === "scissors") ||
+    (playerChoice === "paper" && computerChoice === "rock") ||
+    (playerChoice === "scissors" && computerChoice === "paper")
+  ) {
     computerScore++;
     if (computerScore === 5) {
       text.textContent = `End of the game! You lost!`;
@@ -43,8 +48,18 @@ function playRound(playerChoice) {
   }
   scorePlayer.textContent = playerScore;
   scoreComputer.textContent = computerScore;
-  console.log(playerScore, computerScore);
 }
+
+function resetGame() {
+  playerScore = 0;
+  computerScore = 0;
+  scorePlayer.textContent = playerScore;
+  scoreComputer.textContent = computerScore;
+  buttons.forEach((button) => (button.disabled = false));
+  text.textContent = "Choose one from above";
+}
+
+btnReset.addEventListener("click", resetGame);
 
 buttons.forEach(function (button) {
   button.addEventListener("click", function () {
