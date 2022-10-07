@@ -56,7 +56,7 @@ function resetGame() {
   scorePlayer.textContent = playerScore;
   scoreComputer.textContent = computerScore;
   buttons.forEach((button) => (button.disabled = false));
-  text.textContent = "Choose one from above";
+  text.textContent = "Choose your weapon";
 }
 
 btnReset.addEventListener("click", resetGame);
