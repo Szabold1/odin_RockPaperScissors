@@ -35,8 +35,8 @@ function playRound(playerChoice) {
     text.textContent = `It's a tie! You both chose ${playerChoiceCapitalized}.`;
   } else if (
     (computerChoice === "rock" && playerChoice === "scissors") ||
-    (playerChoice === "paper" && computerChoice === "rock") ||
-    (playerChoice === "scissors" && computerChoice === "paper")
+    (computerChoice === "paper" && playerChoice === "rock") ||
+    (computerChoice === "scissors" && playerChoice === "paper")
   ) {
     computerScore++;
     if (computerScore === 5) {
