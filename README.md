@@ -1,5 +1,7 @@
 # odin_RockPaperScissors
 
+Live: https://szabold1.github.io/odin_RockPaperScissors/
+
 Rock paper scissors game against the computer.
 
 What I learned
